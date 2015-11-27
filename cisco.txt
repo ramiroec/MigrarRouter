@@ -1,0 +1,974 @@
+Current configuration : 28627 bytes
+!
+version 12.3
+service tcp-keepalives-in
+service tcp-keepalives-out
+no service timestamps debug uptime
+service timestamps log datetime localtime
+service password-encryption
+!
+hostname C01.RT01
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$zZfF$V/4xt.Pp03qyOhibpwLl40
+!
+clock timezone ASU-PY -4
+no aaa new-model
+ip subnet-zero
+!
+!
+ip cef
+no ip domain lookup
+ip domain name rieder.net.py
+!
+ip ssh time-out 30
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+username noczeros privilege 15 password 7 034A4958121D715A1D1A491759
+username admin privilege 15 password 7 0824485B080B0118
+!
+!
+!
+!
+!
+!
+interface Loopback10
+ ip address 192.168.255.21 255.255.255.255
+!
+interface FastEthernet0/0
+ no ip address
+ no ip proxy-arp
+ duplex auto
+ speed auto
+ no cdp enable
+!
+interface FastEthernet0/0.1
+ description CANOPY
+ encapsulation dot1Q 1 native
+ ip address 192.168.105.1 255.255.255.0
+ no cdp enable
+!
+interface FastEthernet0/0.2
+ description Frigomerc
+ encapsulation dot1Q 2
+ ip address 10.3.0.73 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.3
+ description INTERTOURS_USA_DIBEN
+ encapsulation dot1Q 3
+ ip address 200.108.137.17 255.255.255.248
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.4
+ description AGZ Sitio 2 - AGZ Sitio 3 - Agregaduria EmbBrasil-Domenech
+ encapsulation dot1Q 4
+ ip address 200.108.137.209 255.255.255.248
+ no cdp enable
+!
+interface FastEthernet0/0.5
+ description C01.AP05
+ encapsulation dot1Q 5
+ ip address 10.0.2.1 255.255.255.0
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.6
+ description Domenech
+ encapsulation dot1Q 6
+ ip address 10.3.0.17 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.7
+ description Isabela Pereira
+ encapsulation dot1Q 7
+ ip address 10.3.0.149 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.8
+ description Dalinajara Almeida
+ encapsulation dot1Q 8
+ ip address 10.3.0.117 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.9
+ description Mario Sosa
+ encapsulation dot1Q 9
+ ip address 10.3.0.141 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.10
+ description Color Shop - Lido
+ encapsulation dot1Q 10
+ ip address 200.108.138.209 255.255.255.248
+ no cdp enable
+!
+interface FastEthernet0/0.11
+ description Foro Brasil
+ encapsulation dot1Q 11
+ ip address 10.3.0.145 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.12
+ description Emma Rivelli
+ encapsulation dot1Q 12
+ ip address 10.1.0.1 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.13
+ description Deisy
+ encapsulation dot1Q 13
+ ip address 200.108.138.61 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.14
+ description USA-backup
+ encapsulation dot1Q 14
+ ip address 200.108.136.65 255.255.255.240
+ shutdown
+ no cdp enable
+!
+interface FastEthernet0/0.15
+ description Gladys Caceres
+ encapsulation dot1Q 15
+ ip address 10.3.0.101 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.16
+ description Hospital_Corazon
+ encapsulation dot1Q 16
+ ip address 10.3.0.77 255.255.255.252
+ ip access-group 112 in
+ shutdown
+ no cdp enable
+!
+interface FastEthernet0/0.17
+ description Lacerie ex SAETA - Daniela Bettini
+ encapsulation dot1Q 17
+ ip address 10.3.0.85 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.18
+ description Estudios_Rurales
+ encapsulation dot1Q 18
+ ip address 10.1.0.221 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.19
+ description Carlos Cuenca
+ encapsulation dot1Q 19
+ ip address 10.3.0.173 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.20
+ description Hugo Martinez
+ encapsulation dot1Q 20
+ ip address 10.3.0.93 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.21
+ description Destisur - Jorge Tavares
+ encapsulation dot1Q 21
+ ip address 10.3.0.169 255.255.255.252 secondary
+ ip address 10.1.0.225 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.22
+ description Bruno Padovan
+ encapsulation dot1Q 22
+ ip address 200.108.137.229 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.23
+ description Libre
+ encapsulation dot1Q 23
+ no cdp enable
+!
+interface FastEthernet0/0.24
+ description Mercedes Nose
+ encapsulation dot1Q 24
+ ip address 10.3.0.133 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.25
+ description Gerardo Lopez
+ encapsulation dot1Q 25
+ ip address 10.3.0.177 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.26
+ description Julien Boe
+ encapsulation dot1Q 26
+ ip address 10.3.0.189 255.255.255.252 secondary
+ ip address 10.5.0.225 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.27
+ description Vouga y Olmedo II
+ encapsulation dot1Q 27
+ ip address 200.108.137.249 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.28
+ description Luiz Gonclaves
+ encapsulation dot1Q 28
+ ip address 10.3.0.57 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.29
+ description Horacio Miranda
+ encapsulation dot1Q 29
+ ip address 10.3.4.237 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.30
+ description Esther Laterra
+ encapsulation dot1Q 30
+ ip address 200.108.137.97 255.255.255.252 secondary
+ ip address 10.3.0.41 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.31
+ description Digitaliza SA
+ encapsulation dot1Q 31
+ ip address 10.3.0.197 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.32
+ description Juana Figueredo
+ encapsulation dot1Q 32
+ ip address 10.3.0.209 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.33
+ description Libre
+ encapsulation dot1Q 33
+ shutdown
+ no cdp enable
+!
+interface FastEthernet0/0.34
+ description Pablo Garozzo
+ encapsulation dot1Q 34
+ ip address 10.3.0.61 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.35
+ description Sanatorio_Americano
+ encapsulation dot1Q 35
+ ip address 200.108.138.249 255.255.255.252 secondary
+ ip address 10.1.0.245 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.36
+ description Berkemeyer
+ encapsulation dot1Q 36
+ ip access-group 112 in
+ shutdown
+ no cdp enable
+!
+interface FastEthernet0/0.37
+ description DTA
+ encapsulation dot1Q 37
+ ip address 10.3.0.89 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.38
+ description EG21
+ encapsulation dot1Q 38
+ ip address 10.1.0.237 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.39
+ description Paula Ayala
+ encapsulation dot1Q 39
+ ip address 10.3.0.161 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.40
+ description ANA GIOSA
+ encapsulation dot1Q 40
+ ip address 10.3.0.165 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.41
+ description San_Miguel
+ encapsulation dot1Q 41
+ ip address 10.3.0.81 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.42
+ description Josenet
+ encapsulation dot1Q 42
+ ip address 10.3.0.193 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.43
+ description Gloria_Brizuela
+ encapsulation dot1Q 43
+ ip address 10.3.0.5 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.44
+ description Carlos Romero
+ encapsulation dot1Q 44
+ ip address 10.3.0.217 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.45
+ description Maria Celia Villagra
+ encapsulation dot1Q 45
+ ip address 10.3.0.13 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.46
+ description Ginny Unrau Wiens
+ encapsulation dot1Q 46
+ ip address 10.3.0.129 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.47
+ description description LabBago-Shouten&Asoc-Residenta-LaMerced-Thuemen
+ encapsulation dot1Q 47
+ ip address 10.3.0.109 255.255.255.252 secondary
+ ip address 10.3.0.49 255.255.255.252 secondary
+ ip address 200.108.137.241 255.255.255.248
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.48
+ description Alvaro Benitez
+ encapsulation dot1Q 48
+ ip address 10.3.0.221 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.49
+ description Joaquin Vera
+ encapsulation dot1Q 49
+ ip address 10.3.0.201 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.50
+ description Andrea Pompa
+ encapsulation dot1Q 50
+ ip address 10.3.0.205 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.51
+ description Richard Arce
+ encapsulation dot1Q 51
+ ip address 10.3.0.137 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.52
+ description Asuncion SA - Mariel Lopez
+ encapsulation dot1Q 52
+ ip address 200.108.137.25 255.255.255.248
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.53
+ description Saotome
+ encapsulation dot1Q 53
+ ip address 10.3.0.1 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.54
+ description Tecnoservice
+ encapsulation dot1Q 54
+ ip address 10.5.0.221 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.55
+ description Alberto Nunez
+ encapsulation dot1Q 55
+ ip address 10.3.0.97 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.56
+ description Jorge Genaro Aquino
+ encapsulation dot1Q 56
+ ip address 10.3.0.29 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.57
+ description Egon Thiessen
+ encapsulation dot1Q 57
+ ip address 200.108.137.205 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.58
+ description Gerardo Gonzalez II
+ encapsulation dot1Q 58
+ ip address 10.3.0.21 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.59
+ description Francisco Dias Xavier
+ encapsulation dot1Q 59
+ ip address 10.3.0.153 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.60
+ description Hugo Zapata
+ encapsulation dot1Q 60
+ ip address 200.108.137.145 255.255.255.248
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.61
+ description Rodrigo Herreros
+ encapsulation dot1Q 61
+ ip address 10.3.0.125 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.62
+ description Maria del Carmen
+ encapsulation dot1Q 62
+ ip address 10.3.0.69 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.63
+ description Schouten Backup
+ encapsulation dot1Q 63
+ ip address 200.108.137.85 255.255.255.252
+ shutdown
+ no cdp enable
+!
+interface FastEthernet0/0.64
+ description Christelle Sjollema
+ encapsulation dot1Q 64
+ ip address 10.3.0.157 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.65
+ description Eliana Guggiari
+ encapsulation dot1Q 65
+ ip address 10.3.0.185 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.66
+ description Academia Pya
+ encapsulation dot1Q 66
+ ip address 10.3.0.45 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.67
+ description Edgar Cabannas
+ encapsulation dot1Q 67
+ ip address 10.3.0.113 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.68
+ description Bernard Cubell
+ encapsulation dot1Q 68
+ ip address 10.3.0.25 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.69
+ description Escuela Artigas
+ encapsulation dot1Q 69
+ ip address 10.1.0.9 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.70
+ description Jorge Rieder
+ encapsulation dot1Q 70
+ ip access-group 112 in
+ shutdown
+ no cdp enable
+!
+interface FastEthernet0/0.71
+ description Gunter Jorge Rothbacher
+ encapsulation dot1Q 71
+ ip address 10.3.0.37 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.72
+ description Julio Cardozo
+ encapsulation dot1Q 72
+ ip address 10.3.0.225 255.255.255.252
+ no cdp enable
+!
+interface FastEthernet0/0.73
+ description Libre
+ encapsulation dot1Q 73
+ ip access-group 112 in
+ shutdown
+ no cdp enable
+!
+interface FastEthernet0/0.74
+ description Deisy Sitjar
+ encapsulation dot1Q 74
+ ip address 10.3.0.65 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.75
+ description Toribio Alarcon
+ encapsulation dot1Q 75
+ ip address 10.3.0.121 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.77
+ description Grupo Industrial Frontanilla
+ encapsulation dot1Q 77
+ ip address 10.1.0.189 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.79
+ description Libre
+ encapsulation dot1Q 79
+ ip access-group 112 in
+ shutdown
+ no cdp enable
+!
+interface FastEthernet0/0.80
+ description LIBRE
+ encapsulation dot1Q 80
+ ip access-group 112 in
+ shutdown
+ no cdp enable
+!
+interface FastEthernet0/0.81
+ description Martha Medina
+ encapsulation dot1Q 81
+ ip address 10.3.0.213 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.83
+ description Dipland
+ encapsulation dot1Q 83
+ ip address 10.1.0.5 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.84
+ description Antonia I. Caceres de Brizuela
+ encapsulation dot1Q 84
+ ip address 10.3.0.105 255.255.255.252
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/0.85
+ description LIBRE
+ encapsulation dot1Q 85
+ shutdown
+ no cdp enable
+!
+interface FastEthernet0/0.86
+ description LIBRE
+ encapsulation dot1Q 86
+ ip access-group 112 in
+ shutdown
+ no cdp enable
+!
+interface FastEthernet0/0.87
+ description LIBRE
+ encapsulation dot1Q 87
+ ip access-group 112 in
+ no cdp enable
+!
+interface FastEthernet0/1
+ description UPlink NOC.SW02
+ ip address 172.16.1.1 255.255.255.0 secondary
+ ip address 172.16.254.2 255.255.255.252
+ ip ospf priority 0
+ duplex full
+ speed auto
+!
+router ospf 100
+ router-id 192.168.255.21
+ no log-adjacency-changes
+ redistribute connected subnets
+ passive-interface default
+ no passive-interface FastEthernet0/1
+ network 172.16.1.0 0.0.0.255 area 1
+ network 172.16.254.0 0.0.0.3 area 1
+ network 192.168.255.21 0.0.0.0 area 0
+!
+ip classless
+no ip http server
+no ip http secure-server
+!
+!
+!
+ip access-list extended TerminalAccess
+ permit ip 172.16.244.0 0.0.0.7 any
+ permit ip host 200.108.136.35 any
+ permit ip host 192.168.50.6 any
+ permit icmp 172.16.244.0 0.0.0.255 any
+ permit tcp host 172.16.244.3 any
+ deny   ip any any
+access-list 1 permit 200.108.136.35
+access-list 1 permit 192.168.50.6
+access-list 2 permit 200.108.136.35
+access-list 2 permit 200.108.136.13
+access-list 2 permit 200.108.136.84
+access-list 2 permit 200.108.136.82
+access-list 3 deny   200.108.134.155
+access-list 110 deny   tcp any any eq 135
+access-list 110 deny   udp any any eq 135
+access-list 110 deny   tcp any any eq 136
+access-list 110 deny   udp any any eq 136
+access-list 110 deny   tcp any any eq 137
+access-list 110 deny   udp any any eq netbios-ns
+access-list 110 deny   tcp any any eq 138
+access-list 110 deny   udp any any eq netbios-dgm
+access-list 110 deny   tcp any any eq 139
+access-list 110 deny   udp any any eq netbios-ss
+access-list 110 deny   udp any any eq 1434
+access-list 110 deny   udp any any eq 1978
+access-list 110 deny   tcp any any eq 16660
+access-list 110 deny   tcp any any eq 16959
+access-list 110 deny   udp any any eq 2002
+access-list 110 deny   tcp any any eq 2222
+access-list 110 deny   tcp any any eq 27374
+access-list 110 deny   tcp any any eq 27444
+access-list 110 deny   udp any any eq 27444
+access-list 110 deny   tcp any any eq 27665
+access-list 110 deny   udp any any eq 3127
+access-list 110 deny   tcp any any eq 31335
+access-list 110 deny   udp any any eq 31335
+access-list 110 deny   tcp any any eq 33270
+access-list 110 deny   tcp any any eq 39168
+access-list 110 deny   tcp any any eq 445
+access-list 110 deny   udp any any eq 4156
+access-list 110 deny   tcp any any eq 4444
+access-list 110 deny   tcp any any eq 593
+access-list 110 deny   udp any any eq 593
+access-list 110 deny   tcp any any eq 65000
+access-list 110 deny   tcp any any eq 6669
+access-list 110 deny   tcp any any eq 6711
+access-list 110 deny   tcp any any eq 6712
+access-list 110 deny   tcp any any eq 6776
+access-list 110 deny   tcp any any eq 7000
+access-list 110 permit ip any any
+access-list 112 deny   tcp any any eq 135
+access-list 112 deny   udp any any eq 135
+access-list 112 deny   tcp any any eq 136
+access-list 112 deny   udp any any eq 136
+access-list 112 deny   tcp any any eq 137
+access-list 112 deny   udp any any eq netbios-ns
+access-list 112 deny   tcp any any eq 138
+access-list 112 deny   udp any any eq netbios-dgm
+access-list 112 deny   tcp any any eq 139
+access-list 112 deny   udp any any eq netbios-ss
+access-list 112 deny   udp any any eq 1434
+access-list 112 deny   udp any any eq 1978
+access-list 112 deny   tcp any any eq 16660
+access-list 112 deny   tcp any any eq 16959
+access-list 112 deny   udp any any eq 2002
+access-list 112 deny   tcp any any eq 2222
+access-list 112 deny   tcp any any eq 27374
+access-list 112 deny   tcp any any eq 27444
+access-list 112 deny   udp any any eq 27444
+access-list 112 deny   tcp any any eq 27665
+access-list 112 deny   udp any any eq 3127
+access-list 112 deny   tcp any any eq 31335
+access-list 112 deny   udp any any eq 31335
+access-list 112 deny   tcp any any eq 33270
+access-list 112 deny   tcp any any eq 39168
+access-list 112 deny   tcp any any eq 445
+access-list 112 deny   udp any any eq 4156
+access-list 112 deny   tcp any any eq 4444
+access-list 112 deny   tcp any any eq 593
+access-list 112 deny   udp any any eq 593
+access-list 112 deny   tcp any any eq 65000
+access-list 112 deny   tcp any any eq 6669
+access-list 112 deny   tcp any any eq 6711
+access-list 112 deny   tcp any any eq 6712
+access-list 112 deny   tcp any any eq 6776
+access-list 112 deny   tcp any any eq 7000
+access-list 112 permit icmp host 10.3.0.6 any echo
+access-list 112 permit icmp host 10.3.0.138 any echo
+access-list 112 permit icmp host 200.108.134.162 any echo
+access-list 112 permit icmp host 200.108.137.5 any echo
+access-list 112 permit icmp host 200.108.137.4 any echo
+access-list 112 permit icmp host 200.108.137.28 any echo
+access-list 112 permit icmp host 200.108.137.58 any echo
+access-list 112 permit icmp host 200.108.137.202 any echo
+access-list 112 permit icmp host 200.108.137.206 any echo
+access-list 112 permit icmp host 200.108.137.164 any echo
+access-list 112 permit icmp host 200.108.138.189 any echo
+access-list 112 permit icmp host 200.108.138.190 any echo
+access-list 112 deny   icmp any any echo
+access-list 112 permit icmp any any echo-reply
+access-list 112 deny   icmp any any time-exceeded
+access-list 112 deny   icmp any any packet-too-big
+access-list 112 deny   icmp any any host-unreachable
+access-list 112 permit ip 200.108.134.112 0.0.0.7 any
+access-list 112 permit ip 200.108.137.0 0.0.0.7 any
+access-list 112 permit ip 200.108.137.16 0.0.0.7 any
+access-list 112 permit ip 200.108.137.24 0.0.0.7 any
+access-list 112 permit ip 200.108.137.32 0.0.0.7 any
+access-list 112 permit ip 200.108.137.40 0.0.0.7 any
+access-list 112 permit ip 200.108.137.48 0.0.0.7 any
+access-list 112 permit ip 200.108.137.64 0.0.0.15 any
+access-list 112 permit ip 200.108.137.160 0.0.0.7 any
+access-list 112 permit ip 200.108.137.168 0.0.0.7 any
+access-list 112 permit ip 200.108.137.184 0.0.0.7 any
+access-list 112 permit ip 200.108.137.200 0.0.0.7 any
+access-list 112 permit ip 200.108.137.216 0.0.0.7 any
+access-list 112 permit ip 200.108.137.240 0.0.0.7 any
+access-list 112 permit ip 200.108.137.248 0.0.0.7 any
+access-list 112 permit ip 200.108.138.72 0.0.0.7 any
+access-list 112 permit ip 200.108.138.184 0.0.0.7 any
+access-list 112 permit ip host 200.108.137.50 any
+access-list 112 permit ip host 200.108.137.54 any
+access-list 112 permit ip host 200.108.137.58 any
+access-list 112 permit ip host 200.108.137.82 any
+access-list 112 permit ip host 200.108.137.86 any
+access-list 112 permit ip host 200.108.137.146 any
+access-list 112 permit ip host 200.108.137.147 any
+access-list 112 permit ip host 200.108.137.148 any
+access-list 112 permit ip host 200.108.137.150 any
+access-list 112 permit ip host 200.108.137.210 any
+access-list 112 permit ip host 200.108.137.211 any
+access-list 112 permit ip host 200.108.137.222 any
+access-list 112 permit ip host 200.108.137.230 any
+access-list 112 permit ip host 200.108.138.62 any
+access-list 112 permit ip host 200.108.138.114 any
+access-list 112 permit ip host 200.108.138.187 any
+access-list 112 permit ip host 200.108.138.210 any
+access-list 112 permit ip host 200.108.138.211 any
+access-list 112 permit ip host 200.108.138.212 any
+access-list 112 permit ip host 200.108.138.213 any
+access-list 112 permit ip host 200.108.138.250 any
+access-list 112 permit ip host 10.0.2.2 any
+access-list 112 permit ip host 10.0.2.3 any
+access-list 112 permit ip 10.1.0.0 0.0.0.255 any
+access-list 112 permit ip 10.3.0.0 0.0.0.255 any
+access-list 112 permit ip 10.5.0.0 0.0.0.15 any
+access-list 112 permit ip 10.5.0.232 0.0.0.7 any
+access-list 112 permit ip 10.5.0.240 0.0.0.7 any
+access-list 112 permit ip 10.5.0.248 0.0.0.7 any
+access-list 112 permit ip host 10.5.0.226 any
+access-list 112 permit ip host 10.5.0.230 any
+access-list 112 permit ip host 10.5.0.254 any
+access-list 112 deny   ip any any
+access-list 2000 permit ip host 10.1.0.246 any
+access-list 2003 permit ip host 10.1.0.190 any
+access-list 2004 permit ip host 10.1.0.222 any
+access-list 2005 permit ip host 10.1.0.238 any
+access-list 2006 permit ip host 10.3.0.158 any
+access-list 2008 permit ip host 10.3.0.38 any
+access-list 2010 permit ip host 10.5.0.234 any
+access-list 2011 permit ip host 10.3.0.46 any
+access-list 2013 permit ip host 200.108.137.86 any
+access-list 2014 permit ip host 200.108.137.246 any
+access-list 2015 permit ip host 10.3.0.174 any
+access-list 2016 permit ip host 10.1.0.202 any
+access-list 2017 permit ip host 10.3.0.182 any
+access-list 2018 permit ip host 200.108.137.164 any
+access-list 2019 permit ip host 200.108.138.211 any
+access-list 2019 permit ip host 200.108.138.213 any
+access-list 2020 permit ip host 10.3.0.102 any
+access-list 2022 permit ip host 10.1.0.226 any
+access-list 2023 permit ip host 200.108.137.5 any
+access-list 2025 permit ip host 200.108.137.21 any
+access-list 2027 permit ip host 200.108.137.50 any
+access-list 2028 permit ip host 10.1.0.26 any
+access-list 2032 permit ip host 10.3.0.6 any
+access-list 2033 permit ip host 10.0.5.254 any
+access-list 2036 permit ip host 200.108.137.245 any
+access-list 2038 permit ip host 200.108.137.45 any
+access-list 2039 permit ip host 200.108.138.212 any
+access-list 2043 permit ip host 10.3.0.30 any
+access-list 2044 permit ip host 10.3.0.62 any
+access-list 2045 permit ip host 10.3.0.150 any
+access-list 2048 permit ip host 200.108.137.218 any
+access-list 2050 permit ip host 10.3.0.74 any
+access-list 2052 permit ip host 10.3.0.34 any
+access-list 2054 permit ip host 200.108.137.210 any
+access-list 2055 permit ip host 200.108.137.18 any
+access-list 2055 permit ip host 200.108.137.19 any
+access-list 2056 permit ip host 10.5.0.222 any
+access-list 2058 permit ip host 200.108.137.206 any
+access-list 2059 permit ip host 10.3.0.26 any
+access-list 2060 permit ip host 10.3.0.66 any
+access-list 2063 permit ip host 10.3.0.94 any
+access-list 2064 permit ip host 200.108.137.4 any
+access-list 2066 permit ip host 10.3.0.210 any
+access-list 2067 permit ip host 10.3.0.106 any
+access-list 2068 permit ip host 200.108.137.250 any
+access-list 2069 permit ip host 10.3.0.206 any
+access-list 2070 permit ip host 200.108.137.2 any
+access-list 2072 permit ip host 10.1.0.2 any
+access-list 2074 permit ip host 10.3.0.86 any
+access-list 2075 permit ip host 10.3.0.110 any
+access-list 2077 permit ip host 200.108.138.188 any
+access-list 2078 permit ip host 200.108.137.54 any
+access-list 2079 permit ip host 200.108.138.114 any
+access-list 2080 permit ip host 200.108.137.146 any
+access-list 2082 permit ip host 10.3.0.166 any
+access-list 2087 permit ip host 200.108.137.211 any
+access-list 2088 permit ip host 200.108.138.187 any
+access-list 2092 permit ip host 10.3.0.162 any
+access-list 2093 permit ip host 10.3.0.146 any
+access-list 2098 permit ip host 10.3.0.14 any
+access-list 2101 permit ip host 200.108.137.202 any
+access-list 2107 permit ip host 10.1.0.6 any
+access-list 2109 permit ip host 10.3.0.122 any
+access-list 2112 permit ip host 10.3.0.170 any
+access-list 2113 permit ip host 10.3.0.50 any
+access-list 2114 permit ip host 10.3.0.190 any
+access-list 2118 permit ip host 10.3.0.186 any
+access-list 2120 permit ip host 10.1.0.10 any
+access-list 2121 permit ip host 10.3.0.214 any
+access-list 2500 permit ip any host 10.1.0.246
+access-list 2503 permit ip any host 10.1.0.190
+access-list 2504 permit ip any host 10.1.0.222
+access-list 2505 permit ip any host 10.1.0.238
+access-list 2506 permit ip any host 10.3.0.158
+access-list 2508 permit ip any host 10.3.0.38
+access-list 2510 permit ip any host 10.5.0.234
+access-list 2511 permit ip any host 10.3.0.46
+access-list 2513 permit ip any host 200.108.137.86
+access-list 2514 permit ip any host 200.108.137.246
+access-list 2515 permit ip any host 10.3.0.174
+access-list 2516 permit ip any host 10.1.0.202
+access-list 2517 permit ip any host 10.3.0.182
+access-list 2518 permit ip any host 200.108.137.164
+access-list 2519 permit ip any host 200.108.138.211
+access-list 2519 permit ip any host 200.108.138.213
+access-list 2520 permit ip any host 10.3.0.102
+access-list 2522 permit ip any host 10.1.0.226
+access-list 2523 permit ip any host 200.108.137.5
+access-list 2525 permit ip any host 200.108.137.21
+access-list 2527 permit ip any host 200.108.137.50
+access-list 2528 permit ip any host 10.1.0.26
+access-list 2532 permit ip any host 10.3.0.6
+access-list 2533 permit ip any host 10.0.5.254
+access-list 2536 permit ip any host 200.108.137.245
+access-list 2538 permit ip any host 200.108.137.45
+access-list 2539 permit ip any host 200.108.138.212
+access-list 2543 permit ip any host 10.3.0.30
+access-list 2544 permit ip any host 10.3.0.62
+access-list 2545 permit ip any host 10.3.0.150
+access-list 2548 permit ip any host 200.108.137.218
+access-list 2550 permit ip any host 10.3.0.74
+access-list 2552 permit ip any host 10.3.0.34
+access-list 2554 permit ip any host 200.108.137.210
+access-list 2555 permit ip any host 200.108.137.18
+access-list 2555 permit ip any host 200.108.137.19
+access-list 2556 permit ip any host 10.5.0.222
+access-list 2558 permit ip any host 200.108.137.206
+access-list 2559 permit ip any host 10.3.0.26
+access-list 2560 permit ip any host 10.3.0.66
+access-list 2563 permit ip any host 10.3.0.94
+access-list 2564 permit ip any host 200.108.137.4
+access-list 2566 permit ip any host 10.3.0.210
+access-list 2567 permit ip any host 10.3.0.106
+access-list 2568 permit ip any host 200.108.137.250
+access-list 2569 permit ip any host 10.3.0.206
+access-list 2570 permit ip any host 200.108.137.2
+access-list 2572 permit ip any host 10.1.0.2
+access-list 2574 permit ip any host 10.3.0.86
+access-list 2575 permit ip any host 10.3.0.110
+access-list 2577 permit ip any host 200.108.138.188
+access-list 2578 permit ip any host 200.108.137.54
+access-list 2579 permit ip any host 200.108.137.114
+access-list 2580 permit ip any host 200.108.137.146
+access-list 2582 permit ip any host 10.3.0.166
+access-list 2587 permit ip any host 200.108.137.211
+access-list 2588 permit ip any host 200.108.138.187
+access-list 2592 permit ip any host 10.3.0.162
+access-list 2593 permit ip any host 10.3.0.146
+access-list 2598 permit ip any host 10.3.0.14
+access-list 2601 permit ip any host 200.108.137.202
+access-list 2607 permit ip any host 10.1.0.6
+access-list 2609 permit ip any host 10.3.0.122
+access-list 2612 permit ip any host 10.3.0.170
+access-list 2613 permit ip any host 10.3.0.50
+access-list 2614 permit ip any host 10.3.0.190
+access-list 2618 permit ip any host 10.3.0.186
+access-list 2620 permit ip any host 10.1.0.10
+access-list 2621 permit ip any host 10.3.0.214
+no cdp run
+!
+snmp-server community roc30 RO 2
+snmp-server community elife RO 2
+snmp-server contact noc.internet@rieder.net.py
+!
+!
+!
+!
+!
+gatekeeper
+ shutdown
+!
+banner motd ^C                                 *****  ROUTER SIEMENS  *****
+
+                     *** SOLO EL NOC DE RIEDER-INTERNET ESTA AUTORIZADO ***
+
+                 ****** PROHIBIDO EL ACCESO A PERSONAS NO AUTORIZADAS!!! ****** ^C
+!
+line con 0
+ login local
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ access-class TerminalAccess in
+ exec-timeout 0 0
+ login local
+ length 0
+ transport input ssh
+!
+!
