@@ -1,4 +1,6 @@
 #! /bin/bash
+[ $# -eq 0 ] && { echo "Usage: migra.sh Archivo_Backup"; exit 1; }
+archivo=$1
 function convertir() {
 local mascara=$1
 if [ $mascara = '255.255.255.252' ]; then
@@ -33,24 +35,24 @@ fi
 
 function VLAN() {
 local interface=$1
-for vlan in `cat cisco.txt | grep $interface. | awk -F "." '{print $2}'`
+for vlan in `cat $archivo | grep $interface. | awk -F "." '{print $2}'`
 do
-direccion=`cat cisco.txt | grep -v secondary|grep "$interface.$vlan$" -A4| grep address | awk '{print $3}'`
+direccion=`cat $archivo | grep -v secondary|grep "$interface.$vlan$" -A4| grep address | awk '{print $3}'`
 if [ -z "$direccion" ]; then
 continue
 else
-mascara=`cat cisco.txt | grep -v secondary|grep "$interface.$vlan\$" -A4| grep address | awk '{print $4}'`
+mascara=`cat $archivo | grep -v secondary|grep "$interface.$vlan\$" -A4| grep address | awk '{print $4}'`
 convertir $mascara
 mascara=$?
-desciption=`cat cisco.txt | grep -v secondary|grep "$interface.$vlan\$" -A4| grep description | awk -F " description " '{print $2}'|sed -e 's/ /_/g'`
+desciption=`cat $archivo | grep -v secondary|grep "$interface.$vlan\$" -A4| grep description | awk -F " description " '{print $2}'|sed -e 's/ /_/g'`
 echo "set interfaces ethernet eth0 vif $vlan address $direccion/$mascara"
 echo "set interfaces ethernet eth0 vif $vlan description $desciption"
-for secondary in `cat cisco.txt |grep "$interface.$vlan$" -A4| grep address |  grep secondary|awk '{print $3}'`
+for secondary in `cat $archivo |grep "$interface.$vlan$" -A4| grep address |  grep secondary|awk '{print $3}'`
 do
 if [ -z "$secondary" ]; then
 continue
 else
-mascara2=`cat cisco.txt | grep secondary| grep $secondary | awk '{print $4}'`
+mascara2=`cat $archivo | grep secondary| grep $secondary | awk '{print $4}'`
 convertir $mascara2
 mascara2=$?
 echo "set interfaces ethernet eth0 vif $vlan address $secondary/$mascara2"
@@ -59,8 +61,13 @@ done
 fi
 done
 }
+
 VLAN "FastEthernet0/0"
 echo "set service snmp community elife"
-cat cisco.txt | grep hostname | awk '{print "set system host-name " $2}'
-
+cat $archivo | grep hostname | awk '{print "set system host-name " $2}'
+set interfaces ethernet eth0 ip ospf dead-interval 40
+set interfaces ethernet eth0 ip ospf hello-interval 10
+set interfaces ethernet eth0 ip ospf priority 1       
+set interfaces ethernet eth0 ip ospf retransmit-interval 5
+set interfaces ethernet eth0 ip ospf transmit-delay 1   
 
